@@ -8,8 +8,6 @@ import WithAnimation from './src/components/SplashScreen';
 const Stack = createNativeStackNavigator();
 
 const HomeNavigation = () => {
-  console.log('Home Screen');
-
   return (
     <View
       style={{
@@ -33,7 +31,7 @@ const App = () => {
         fade: true,
       });
       setPlay(true);
-    }, 150);
+    }, 100);
 
     return () => clearTimeout(id);
   }, []);
