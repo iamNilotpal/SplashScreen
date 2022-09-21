@@ -1,21 +1,25 @@
-import { View, Text } from 'react-native';
-import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React, { useEffect, useState } from 'react';
+import { Text, View } from 'react-native';
 import RNBootSplash from 'react-native-bootsplash';
-
 import WithAnimation from './src/components/SplashScreen';
 
 const Stack = createNativeStackNavigator();
 
 const HomeNavigation = () => {
+  console.log('Home Screen');
+
   return (
     <View
       style={{
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <Text style={{ fontWeight: 'bold', fontSize: 35 }}>HOME SCREEN</Text>
+      <Text style={{ fontWeight: 'bold', fontSize: 35, color: 'black' }}>
+        HOME SCREEN
+      </Text>
     </View>
   );
 };
@@ -25,30 +29,24 @@ const App = () => {
 
   useEffect(() => {
     const id = setTimeout(() => {
-      setPlay(true);
       RNBootSplash.hide({
         fade: true,
       });
-    }, 100);
+      setPlay(true);
+    }, 150);
 
     return () => clearTimeout(id);
   }, []);
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'transparent',
-      }}>
-      {play && <WithAnimation play={play} setPLay={setPlay} />}
+    <>
+      <WithAnimation play={play} setPLay={setPlay} />
       <NavigationContainer onReady={() => setPlay(false)}>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Home" component={HomeNavigation} />
         </Stack.Navigator>
       </NavigationContainer>
-    </View>
+    </>
   );
 };
 
