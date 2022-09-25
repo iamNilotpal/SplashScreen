@@ -93,9 +93,9 @@ Edit the `ios/YourProjectName/AppDelegate.m(m)` file:
 
 Set the `BootSplash.storyboard` as launch screen file:
 
-| Drag and drop the file               | Create folder reference               | Set as Launch Screen File             |
-| ------------------------------------ | ------------------------------------- | ------------------------------------- |
-| ![](./src/assets/images/xcode-1.png) | ![](./src/assets/images/xcode-2.png)) | ![](./src/assets/images/xcode-3.png)) |
+| Drag and drop the file               | Create folder reference              | Set as Launch Screen File            |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| ![](./src/assets/images/xcode-1.png) | ![](./src/assets/images/xcode-2.png) | ![](./src/assets/images/xcode-3.png) |
 
 ### Android
 
