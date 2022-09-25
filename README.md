@@ -58,12 +58,6 @@ To generate assets run the command:
 npx react-native generate-bootsplash <Your Logo Path>
 --- or ---
 yarn react-native generate-bootsplash <Your Logo Path>
-
-Options:
-  --background-color <color>  color used as launch screen background (in hexadecimal format) (default: "#fff")
-  --logo-width <width>        logo width at @1x (in dp - we recommend approximately ~100) (default: 100)
-  --assets-path [path]        path to your static assets directory (useful to require the logo file in JS)
-  --flavor <flavor>           [android only] flavor build variant (outputs in an android resource directory other than "main")
 ```
 
 ### iOS
@@ -93,15 +87,23 @@ Edit the `ios/YourProjectName/AppDelegate.m(m)` file:
 
 Set the `BootSplash.storyboard` as launch screen file:
 
-| Drag and drop the file               | Create folder reference              | Set as Launch Screen File            |
-| ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| ![](./src/assets/images/xcode-1.png) | ![](./src/assets/images/xcode-2.png) | ![](./src/assets/images/xcode-3.png) |
+**1. Drag and drop the file**
+
+<img src="./src/assets/images/xcode-1.png" width="auto" height="300"/>
+
+**2. Create folder reference**
+
+<img src="./src/assets/images/xcode-2.png" width="auto" height="300"/>
+
+**3. Set as Launch Screen File**
+
+<img src="./src/assets/images/xcode-3.png" width="auto" height="300"/>
+
+---
 
 ### Android
 
-On Android 12, the splash screen will not appear if you start your app from the terminal / Android Studio. To see it, kill your app and restart it in normal conditions (tap on your app icon in the app launcher).
-
----
+On Android 12, the splash screen will not appear if you start your app from the **terminal / Android Studio.** To see it, kill your app and restart it in normal conditions (tap on your app icon in the app launcher).
 
 1. As this library only support Android 6+, you probably have to edit your `android/build.gradle` file:
 
@@ -109,7 +111,7 @@ On Android 12, the splash screen will not appear if you start your app from the 
 buildscript {
   ext {
     buildToolsVersion = "31.0.0"
-    minSdkVersion = 23 // <- AndroidX splashscreen has basic support for 21 (only the background color), so 23 is best
+    minSdkVersion = 23 // <- AndroidX splash screen has basic support for 21 (only the background color), so 23 is best
     compileSdkVersion = 31 // <- set at least 31
     targetSdkVersion = 31 // <- set at least 31
 
@@ -225,7 +227,7 @@ import RNBootSplash from 'react-native-bootsplash';
 function App() {
   return (
     <NavigationContainer onReady={() => RNBootSplash.hide()}>
-      {/* content */}
+      {/* Your Content Goes Here */}
     </NavigationContainer>
   );
 }
